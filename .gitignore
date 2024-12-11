@@ -1,4 +1,4 @@
-/config_kis.yaml
 /.env
 __pycache__/
-/airflow/venv
+venv
+airflow.log
