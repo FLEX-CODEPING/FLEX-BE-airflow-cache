@@ -3,7 +3,7 @@ from tasks.kis.dto.request import *
 import os
 import requests
 import json
-from dags.config.config import settings
+from config.config import settings
 
 class KoreaInvestRestClient:  
     def get_daily_item_chart_price(self, request: DailyItemChartPriceReq):
