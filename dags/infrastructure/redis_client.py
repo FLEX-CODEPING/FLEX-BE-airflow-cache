@@ -1,11 +1,11 @@
 import redis.asyncio as redis
 import os
-from dags.config.config import settings
+from config.config import settings
 
 redis_client = redis.StrictRedis(
         host=settings.redis_host, 
         port=settings.redis_port, 
-        password=settings.redis_port,
+        password=settings.redis_password,
         db=settings.redis_db, 
         decode_responses=True)
 
