@@ -4,7 +4,7 @@ import pendulum
 from tasks.kis_cache_task import KISCacheTask
 import asyncio
 from tasks.kis.utils.period_div_code import PeriodDivCode
-from tasks.kis.utils.date_util import *
+from tasks.kis.utils.date_util import get_redis_key_dates
 
 local_tz = pendulum.timezone("Asia/Seoul")
 now = pendulum.now("Asia/Seoul") 
@@ -115,7 +115,7 @@ with DAG(
             )
         return asyncio.run(async_fetch_and_cache())
 
-    # 1985-2023
+    # 1980-2023
     date_from, date_to = get_redis_key_dates(PeriodDivCode.YEAR)
 
     get_kis_data_yearly = fetch_and_cache_kis_data(
