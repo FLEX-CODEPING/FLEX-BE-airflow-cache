@@ -12,7 +12,7 @@ class KoreaInvestRestClient:
             Note: 국내주식기간별시세(일/주/월/년)[v1_국내주식-016]
         """
 
-        path = '/api/kis/stocks/daily/item-chart-price/origin'
+        path = '/api/kis/stocks/daily/item-chart-price'
         request_url = settings.flex_server+path
 
         headers = {
