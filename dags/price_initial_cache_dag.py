@@ -38,8 +38,8 @@ with DAG(
     get_kis_data_daily = fetch_and_cache_kis_data(
         market_div_code='J',
         stock_code='005930',
-        date_from='20240809',  
-        date_to='20241210',    
+        date_from=date_from,  
+        date_to=date_to,    
         period_div_code=PeriodDivCode.DAY.value,
         org_adj_price=0
     )
