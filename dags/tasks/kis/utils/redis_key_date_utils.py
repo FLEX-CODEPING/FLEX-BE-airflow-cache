@@ -10,12 +10,12 @@ def get_redis_key_dates(periodDivCode: PeriodDivCode
     # 연봉 (YEAR)
     if periodDivCode == PeriodDivCode.YEAR:
         date_from = datetime(1980, 1, 1).strftime('%Y%m%d') # 1980년 1월 1일
-        date_to = get_yearly_date_to()  # 당년의 1일
+        date_to = get_yearly_date_from()  # 당년의 1월 1일
         
     # 월봉 (MONTH)
     elif periodDivCode == PeriodDivCode.MONTH:
         date_from = get_monthly_date_from(periods)  # 4년전 전월 1일
-        date_to = get_monthly_date_to()  # 당월의 1일
+        date_to = get_monthly_date_from(periods)  # 당월의 1일
         
     # 주봉 (WEEK)
     elif periodDivCode == PeriodDivCode.WEEK:
@@ -29,14 +29,14 @@ def get_redis_key_dates(periodDivCode: PeriodDivCode
 
     return date_from, date_to
 
-def get_yearly_date_to():
+def get_yearly_date_from():
     """
     주어진 날짜 객체의 연도에 해당하는 1월 1일 데이터를 반환하는 함수.
     """
     first_day_of_year = get_date().replace(month=1, day=1)
     return first_day_of_year.strftime('%Y%m%d')
 
-def get_monthly_date_to():
+def get_monthly_date_from():
     """
     주어진 날짜 객체의 월에 해당하는 1일 데이터를 반환하는 함수.
     """
